@@ -1,1 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
+html{
+  font-size: 1rem;
+}
+.row table{
+  height: 90%;
+}
+.table td, .table th{
+  font-size: 1rem;
+}
+
+.td-button{
+  background-color: #DFF0D0;
+  width:40%;
+}
+
+.num-button{
+  color:#60B515;
+  text-decoration: underline;
+}
+
+.gird-font{
+  font-size: x-large;
+}
