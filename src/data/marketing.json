@@ -1,0 +1,11 @@
+{
+  "data": {
+    "yearList": ["2014","2015","2016","2017"],
+    "dataYear": "2016",
+    "subjectName": "销售主题",
+    "subjectTitles":["销售主题1","销售主题2"]
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}

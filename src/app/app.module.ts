@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { RouterModule, Routes } from '@angular/router'
 import { ClarityModule } from 'clarity-angular';
 
 import { AppComponent } from './app.component';
@@ -16,9 +17,27 @@ import {MarketSituationSumModal} from "./pages/MarketSubject/modals/marketsituat
 import {DxTemplateModule, DxDataGridModule} from "devextreme-angular";
 import {Grid} from './pages/Grids/grid.component'
 
+
+
+
+
 declare function require(arg:string): any;
 
 const Highcharts = require('highcharts/highcharts.src');
+const appChildRoutes: Routes = [
+  { path:"Marketing", component: Market },
+  { path:"Costing", component: Linechart },
+  { path:"Tendering", component: Barchart },
+  { path:"**", redirectTo: "Marketing"}
+]
+
+const appRoutes: Routes = [
+  { path:"", component: Market },
+  { path:"Marketing", component: Market },
+  { path:"Costing", component: Linechart },
+  { path:"Tendering", component: Barchart },
+  { path:"**", redirectTo: "Marketing"}
+]
 
 @NgModule({
   declarations: [
@@ -34,6 +53,7 @@ const Highcharts = require('highcharts/highcharts.src');
     LoginForm
   ],
   imports: [
+    RouterModule.forRoot(appRoutes),
     BrowserModule,
     ClarityModule.forRoot(),
     FormsModule,

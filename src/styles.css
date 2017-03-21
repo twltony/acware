@@ -8,6 +8,9 @@ html{
 .table td, .table th{
   font-size: 1rem;
 }
+.th-second{
+  min-width: 150px;
+}
 
 .td-button{
   background-color: #DFF0D0;

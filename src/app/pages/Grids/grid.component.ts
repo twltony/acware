@@ -7,7 +7,7 @@ import {Service,Country} from "./grid.service";
 @Component({
     selector: 'ac-grid',
     templateUrl: 'grid.component.html',
-    styleUrls: ['grid.style.css'],
+    styles: ['th{border: 1px solid #ccc} td{border: 1px solid #ccc}'],
     encapsulation: ViewEncapsulation.None,
      providers: [Service]
 })
