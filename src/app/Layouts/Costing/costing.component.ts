@@ -10,11 +10,8 @@ import { Http } from '@angular/http'
     templateUrl: 'costing.component.html'
 })
 export class Costing implements OnInit{
-  public datas = [];
     constructor(public http: Http){
-      this.http.get('assets/data/marketing.json')
-      //.subscribe(res => console.log(res.json()));
-        .subscribe(res => this.datas = res.json());
+
     }
 
     ngOnInit() {

@@ -13,6 +13,7 @@ import { AppRoutingModule } from './app-routing'
 import { AppComponent } from './app.component';
 import { LoginForm } from "./pages/login/app.component.login";
 import { Marketing } from "./Layouts/Marketing/marketing.component";
+import { MarketDaySell } from "./Layouts/Marketing/Pages/market-daysell.component";
 import { Costing } from "./Layouts/Costing/costing.component";
 import { Tendering } from "./Layouts/Tendering/tendering.component";
 
@@ -22,6 +23,9 @@ import { Linechart } from "./components/Charts/linechart.component";
 import { Columnchart } from "./components/Charts/columnchart.component";
 import { Piechart } from "./components/Charts/piechart.component"
 import { Barchart } from "./components/Charts/barchart.component"
+
+//pipes
+import { keyValueFilterPipe } from "./Pipes/key-value.pipes"
 
 //虚拟服务（生产环境去除）
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
@@ -37,6 +41,9 @@ const Highcharts = require('highcharts/highcharts.src');
     Marketing,
     Costing,
     Tendering,
+
+    MarketDaySell,
+
     Columnchart,
     Linechart,
     Piechart,
@@ -49,7 +56,9 @@ const Highcharts = require('highcharts/highcharts.src');
     ClarityModule.forRoot(),
     FormsModule,
     HttpModule,
+    InMemoryWebApiModule.forRoot(InMemoryDataService),
     AppRoutingModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

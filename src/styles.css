@@ -25,3 +25,10 @@ html{
 .gird-font{
   font-size: x-large;
 }
+
+.ac-main-content{
+  width:100%;
+  background-color:#fff;
+  overflow: scroll;
+  height: 100vh;
+}

@@ -1,33 +1,37 @@
-import {  Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { Marketing } from './Layouts/Marketing/marketing.component'
+import { BaseDataBean } from './Modals/basedata.bean'
+import { BaseDataService  } from './Services/basedata.service'
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  providers:[BaseDataService]
 })
 
- export class AppComponent implements OnInit{
-   // title = 'app works!';
-  hasSubNavbar= false;
+export class AppComponent implements OnInit {
+  basedatas : BaseDataBean[];
+  hasSubNavbar = false;
+  location: Location;
+  selectedYear;
+
+  constructor(
+    location: Location,
+    private baseDataService: BaseDataService
+    ) {
+      this.location = location;
+       this.baseDataService.getBaseData()
+        .then(basedatas => {
+          this.basedatas = basedatas;
+      })
+    }
   
-   constructor(){
-    
-   }
 
-   isHasSubNavbar(location: Location){
-     let loca = location.path();
-        console.log(loca.indexOf("Marketing"));
-          if(loca.indexOf("Marketing")>0){  
-            this.hasSubNavbar = true;
-            console.log(this.hasSubNavbar);
-          }
-   }
-   ngOnInit(){
-   
-   }
-
- }
+  ngOnInit() {
+  }
+ 
 
 
+}
