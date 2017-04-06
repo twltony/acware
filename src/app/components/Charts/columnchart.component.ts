@@ -7,8 +7,11 @@ import {
   ElementRef,
   AfterViewInit,
   OnDestroy,
+  Input,
   ViewChild
 } from '@angular/core';
+import { MarketingDatas } from '../../Modals/marketing'
+import { ColumnChartData } from '../../Modals/columnchart'
 
 declare function require(arg:string): any;
 const Highcharts = require('highcharts/highcharts.src');
@@ -25,26 +28,40 @@ import 'highcharts/adapters/standalone-framework.src';
 
 export class Columnchart implements AfterViewInit, OnDestroy {
   @ViewChild('columnchart') public chartEl: ElementRef;
+  @Input() 
+  data: MarketingDatas[];
 
-  constructor(private elRef: ElementRef){
-
-  }
+  constructor(private elRef: ElementRef){}
 
   ngOnInit() {
-    console.log(this.elRef.nativeElement.parentElement.clientWidth);
+
   }
 
   private _chart: any;
 
   public ngAfterViewInit() {
+    let chart = new ColumnChartData;
+    let title =(this.data as any).chartTitle
+    //系列
+    let series = (this.data as any).chartSeries;
+    console.log(series);
+    //Y轴数据
+    let categories = [];
+    let yDatas = (this.data as any).chartData
+    for (var yData in yDatas){
+      categories.push(yDatas[yData].vMm)
+    }
+    
+
+    //配置图形            
     let opts: any = {
       title: {
-        text: '营销情况',
-        x: -20 //center
+        text: title + 2015,
+        style: { "fontSize": "14px" }
+       // x: -20 //center
       },
       xAxis: {
-        categories: ['01月', '02月', '03月', '04月', '05月', '06月',
-          '07月', '08月', '09月', '10月', '11月', '12月']
+        categories: categories
       },
       yAxis: {
         min: 0,
@@ -58,21 +75,7 @@ export class Columnchart implements AfterViewInit, OnDestroy {
           pointWidth: 15
         }
       },
-      series: [
-        {
-          name: '计划金额',
-          data: [
-            7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2,
-            26.5, 23.3, 18.3, 13.9, 9.6
-          ]
-        },{
-          name: '销售金额',
-          data: [
-            3.0, 3.9, 10.5, 20.5, 15.2, 31.5, 28.2,
-            25.5, 20.3, 15.3, 23.9, 19.6
-          ]
-        },
-      ],
+      series: series,
       credits: {
              enabled:false
         }

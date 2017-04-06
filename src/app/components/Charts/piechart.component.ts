@@ -7,8 +7,10 @@ import {
   ElementRef,
   AfterViewInit,
   OnDestroy,
+  Input,
   ViewChild
 } from '@angular/core';
+import { MarketingDatas } from '../../Modals/marketing'
 import 'highcharts/adapters/standalone-framework.src';
 
 declare function require(arg:string): any;
@@ -18,26 +20,31 @@ const Highcharts = require('highcharts/highcharts.src');
   selector: 'piechart',
   template: `
         <div>
-        <div #piechart></div>
+        <div #piechart style=""></div>
         </div>
       `
 })
 
 export class Piechart implements AfterViewInit, OnDestroy {
   @ViewChild('piechart') public chartEl: ElementRef;
+  @Input() data: MarketingDatas[];
 
   private _chart: any;
 
   public ngAfterViewInit() {
+    let title =(this.data as any).chartTitle
+    //系列
+    let series = (this.data as any).chartSeries;
+    let seriesName = (this.data as any).chartSeriesName; // 单位
     let opts: any = {
         title: {
-            text: ''
+            text: title
         },
         tooltip: {
             pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
         },
-        plotOptions: {
-            pie: {
+    plotOptions: {
+        pie: {
                 allowPointSelect: true,
                 cursor: 'pointer',
                 dataLabels: {
@@ -46,27 +53,36 @@ export class Piechart implements AfterViewInit, OnDestroy {
                 showInLegend: true
             }
         },
+        chart:{
+             height:10000
+        },
+        legend:{
+            align:'center',
+            verticalAlign:'center',
+            x:0,
+            y:30
+        },
         series: [{
-            name: '平方m²',
+            name: seriesName,
             colorByPoint: true,
             data: [{
-                name: '别墅',
-                y: 56.33
-            }, {
-                name: '车位',
-                y: 24.03,
-                sliced: true,
-                selected: true
-            }, {
-                name: '洋房',
-                y: 10.38
-            }, {
-                name: '公寓',
-                y: 4.77
-            }, {
-                name: '商铺',
-                y: 0.91
-            }]
+            "name": "洋房",
+            "y": 119165.4004,
+            "data": null
+        }, {
+            "name": "商铺",
+            "y": 262897.923,
+            "data": null
+        }, {
+            "name": "公寓",
+            "y": 424953.8342
+        }, {
+            "name": "车位",
+            "y": 63950.0892
+        }, {
+            "name": "别墅",
+            "y": 59450.7303
+        }]
         }],
       credits: {
              enabled:false

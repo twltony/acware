@@ -3,18 +3,83 @@ html{
   font-size: 1rem;
 }
 .row table{
-  height: 90%;
+
+}
+h1{
+  margin-top: 0.4em;
+}
+h2{
+  margin-top: 0.4em;
 }
 .table td, .table th{
-  font-size: 1rem;
+  /*font-size: 1rem;*/
 }
 .th-second{
   min-width: 150px;
 }
+.break-line-right{
+    border-right-color: #747474;
+    border-right-style: solid;
+    border-right-width: thin;
+}
+.row-break{
+  margin-top:1rem;
+}
+.ac-breakline {line-height:2px;background-color: #747474;margin: 5px;}
+.back-button{
+    position: fixed;
+    bottom: 5px;
+    right: 5px;
+    border-color: #007cbb;
+    background-color: #007cbb;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    margin: 6px 12px 6px 0;
+    -webkit-appearance: none !important;
+    border-radius: 3px;
+    border-style: solid;
+    border-width: 1px;
+    min-width: 72px;
+    max-width: 360px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    vertical-align: middle;
+    line-height: 36px;
+    letter-spacing: .12em;
+    font-size: 12px;
+    font-weight: 500;
+    height: 36px;
+    padding: 0 12px;
+}
 
 .td-button{
   background-color: #DFF0D0;
-  width:40%;
+  width:30%;
+  font-size: large;
+}
+.table-th{
+  width:25%;
+}
+
+.font-xs{
+  font-size: x-small;
+}
+.font-s{
+  font-size: small;
+}
+. {
+  font-size: 1rem;
+}
+.font-l{
+  font-size: large;
+}
+.font-xl{
+  font-size: x-large;
 }
 
 .num-button{
@@ -29,6 +94,7 @@ html{
 .ac-main-content{
   width:100%;
   background-color:#fff;
-  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
   height: 100vh;
 }

@@ -3,8 +3,9 @@
  */
 import {Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { BaseDataBean } from '../../Modals/basedata.bean'
+import { MarketingDatas } from '../../Modals/marketing'
 import { BaseDataService  } from '../../Services/basedata.service'
+import { MarketingService } from './marketing.services'
 
 
 @Component({
@@ -15,26 +16,24 @@ import { BaseDataService  } from '../../Services/basedata.service'
 
 })
 export class Marketing implements OnInit{
- basedatas : BaseDataBean[];
+ marketingDatas : MarketingDatas[];
  selectedYear;
 
     constructor(
       private router: Router,
-      private baseDataService: BaseDataService
+      private marketingService: MarketingService
     ) {
-       this.baseDataService.getBaseData()
-        .then(basedatas => {
-          this.basedatas = basedatas;
-      })
+       
     }
 
     ngOnInit() {
-      this.getMarket();
+      this.marketingService.getMarketingMainData()
+        .then(marketingDatas => {
+          this.marketingDatas = marketingDatas;
+      })
    }
 
-    getMarket(): void{
-      
-    }
+  
     navToDaySell(): void{
       this.router.navigate(['/MarketDaySell']);
     }

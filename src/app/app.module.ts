@@ -25,11 +25,10 @@ import { Piechart } from "./components/Charts/piechart.component"
 import { Barchart } from "./components/Charts/barchart.component"
 
 //pipes
-import { keyValueFilterPipe } from "./Pipes/key-value.pipes"
 
 //虚拟服务（生产环境去除）
-import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService }  from './Services/in-memory-data.service';
+// import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+// import { InMemoryDataService }  from './Services/in-memory-data.service';
 
 declare function require(arg:string): any;
 
@@ -56,7 +55,7 @@ const Highcharts = require('highcharts/highcharts.src');
     ClarityModule.forRoot(),
     FormsModule,
     HttpModule,
-    InMemoryWebApiModule.forRoot(InMemoryDataService),
+   // InMemoryWebApiModule.forRoot(InMemoryDataService),
     AppRoutingModule
     
   ],

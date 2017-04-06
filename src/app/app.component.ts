@@ -1,30 +1,30 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { Marketing } from './Layouts/Marketing/marketing.component'
-import { BaseDataBean } from './Modals/basedata.bean'
-import { BaseDataService  } from './Services/basedata.service'
+import { MarketingDatas } from './Modals/marketing'
+import { MarketingService  } from './Layouts/Marketing/marketing.services'
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers:[BaseDataService]
+  providers:[MarketingService]
 })
 
 export class AppComponent implements OnInit {
-  basedatas : BaseDataBean[];
+  marketingDatas : MarketingDatas[];
   hasSubNavbar = false;
   location: Location;
   selectedYear;
 
   constructor(
     location: Location,
-    private baseDataService: BaseDataService
+    private marketingService: MarketingService
     ) {
       this.location = location;
-       this.baseDataService.getBaseData()
-        .then(basedatas => {
-          this.basedatas = basedatas;
+       this.marketingService.getMarketingMainData()
+        .then(marketingDatas => {
+          this.marketingDatas = marketingDatas;
       })
     }
   

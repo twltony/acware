@@ -34,7 +34,7 @@ export class Barchart implements AfterViewInit, OnDestroy {
         text: '2017年物资采购'
     },
     subtitle: {
-        text: 'Source: <a href="https://en.wikipedia.org/wiki/World_population">Wikipedia.org</a>'
+        text: 'Source: <a ></a>'
     },
     xAxis: {
         categories: ['海丰项目', '敏捷城项目', '锦绣海湾城', '国际花城'],

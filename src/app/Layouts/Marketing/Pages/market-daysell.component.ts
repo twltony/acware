@@ -25,8 +25,8 @@ export class MarketDaySell implements OnInit{
     getMarket(): void{
       
     }
-    navToDaySell(): void{
-      this.router.navigate(['/MarketDaySell']);
+    navGoBack(): void{
+      this.router.navigate(['../']);
     }
 
 }

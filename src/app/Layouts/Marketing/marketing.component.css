@@ -1,16 +1,84 @@
 .ac-breakline {line-height:2px;background-color: #747474;margin: 5px;}
-th {font-size:16px} 
 h1 > span{
     font-size: 14px;
 }
+h2 > span{
+    font-size: 12px;
+}
+.phone-breakline{
+    display: none;
+}
+.th-auto{
+    width: auto;
+}
+.th-fix-width{
+        width:110px;
+    }
+.th-fix-120{
+        width:120px;
+    }
+.th-10{
+    width:10%;
+}
+.th-25{
+    width:25%;
+}
+.th-30{
+    width:30%;
+}
+.th-40{
+    width:40%;
+}
 
-@media (max-width:736px){
+@media (min-width:769px){
+    .table th{
+    font-size: 1rem;
+    }
+    .table td{
+        font-size: 1rem;
+    }
+   
+}
+@media (max-width:768px){
     h2 > span{
         font-size: 16px;
     }
     .h2-title{
-        margin:0px;
         text-align: center;
         font-size: 16px;
     }
+    th{
+        vertical-align: middle;
+        font-size: 10px;
+        font-weight: 200;
+        padding: 2px;
+    }
+    table{
+        margin: 5px 0 0 0; 
+    }
+    .table td{
+        padding: 5px 5px 5px;
+    }
+    .memo{
+         font-size: 0.5em;
+        color: #777;
+        width:100%;
+        text-align: center;
+    }
 }
+
+@media (max-width:514px){
+    .phone-breakline{
+        margin-top: 15px;
+        margin-bottom: 15px;
+        display: block;
+    }
+     .memo{
+         font-size: 0.5em;
+        color: #777;
+        width:100%;
+        text-align: center;
+        
+    }
+}
+    
