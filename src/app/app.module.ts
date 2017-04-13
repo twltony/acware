@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { ClarityModule } from 'clarity-angular';
+import { DxDataGridModule, DxTemplateModule } from 'devextreme-angular';
 
 //路由
 import { RouterModule, Routes } from '@angular/router'
@@ -25,6 +26,7 @@ import { Piechart } from "./components/Charts/piechart.component"
 import { Barchart } from "./components/Charts/barchart.component"
 
 //pipes
+import {RoundPipe} from "./Pipes/round.pipe"
 
 //虚拟服务（生产环境去除）
 // import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
@@ -48,13 +50,15 @@ const Highcharts = require('highcharts/highcharts.src');
     Piechart,
     Barchart,
     Grid,
-    LoginForm
+    LoginForm,
+    RoundPipe
   ],
   imports: [
     BrowserModule,
     ClarityModule.forRoot(),
     FormsModule,
     HttpModule,
+    DxDataGridModule, DxTemplateModule,
    // InMemoryWebApiModule.forRoot(InMemoryDataService),
     AppRoutingModule
     

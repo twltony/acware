@@ -32,9 +32,8 @@ export class Marketing implements OnInit{
           this.marketingDatas = marketingDatas;
       })
    }
-
   
-    navToDaySell(): void{
+    navToDaySell(data): void{
       this.router.navigate(['/MarketDaySell']);
     }
      onSelectYear(year): void {

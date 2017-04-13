@@ -3,12 +3,14 @@ import { Location } from '@angular/common';
 import { Marketing } from './Layouts/Marketing/marketing.component'
 import { MarketingDatas } from './Modals/marketing'
 import { MarketingService  } from './Layouts/Marketing/marketing.services'
+import { LoginService } from './pages/login/login.services'
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers:[MarketingService]
+  providers:[MarketingService,LoginService]
 })
 
 export class AppComponent implements OnInit {

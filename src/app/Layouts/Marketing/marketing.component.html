@@ -72,7 +72,7 @@
       <div class="row row-break">
         <div class="col-xs-7 break-line-right">
           <h3 class="h2-title">{{marketingDatas?.salesDates?.nDaySalesTime | date:"M"}}月{{marketingDatas?.salesDates?.nDaySalesTime | date:"d"}}日销售  
-            <span class="num-button" (click)="navToDaySell()">{{marketingDatas?.salesStatus?.nDaySales}}万元</span>
+            <span class="num-button" (click)="navToDaySell(marketingDatas)">{{marketingDatas?.salesStatus?.nDaySales}}万元</span>
           </h3>
           <h3 class="h2-title">{{marketingDatas?.currentDataMonth}}月营销费用  <span class="num-button">{{marketingDatas?.yxFee}}万元</span></h3>
           <div class="memo">
@@ -94,7 +94,7 @@
       </div>
     </div>
     <!--右 柱状图-->
-    <div class="col-sm-6">
+    <div class="col-sm-6 ">
       <columnchart [data]="marketingDatas?.columnChart" *ngIf="marketingDatas"></columnchart>
     </div>
   </div>
@@ -177,7 +177,7 @@
         <table class="table table-noborder">
           <thead>
           <tr>
-            <th class="th-10">排名</th>
+            <th class="th-5"></th>
             <th>项目</th>
             <th class="td-button">完成率</th>
           </tr>

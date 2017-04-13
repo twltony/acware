@@ -22,53 +22,38 @@
   
   <div class="ac-main-content">
         <button type="submit" class="back-button" (click)="navGoBack()">返回</button>
-        <h1>测试</h1>
-        <h1>测试</h1>
-        <h1>测试</h1>
-        <h1>测试</h1>
-        <h1>测试</h1>
-        <h1>测试</h1>
-        <h1>测试</h1>
-        <h1>测试</h1>
-        <h1>测试</h1>
-        <h1>测试</h1>
-        <h1>测试</h1>
-        <h1>测试</h1>
-        <h1>测试</h1>
-        <h1>测试</h1>
-        <h1>测试</h1>
-        <h1>测试</h1>
-        <h1>测试</h1>
-        <h1>测试</h1>
-        <h1>测试</h1>
-        <h1>测试</h1>
-        <h1>测试</h1>
-        <h1>测试</h1>
-        <h1>测试</h1>
-        <h1>测试</h1>
-        <h1>测试</h1>
-        <h1>测试</h1>
-        <h1>测试</h1>
-        <h1>测试</h1>
-        <h1>测试</h1>
-        <h1>测试</h1>
-        <h1>测试</h1>
-        <h1>测试</h1>
-        <h1>测试</h1>
-        <h1>测试</h1>
-        <h1>测试</h1>
-        <h1>测试</h1>
-        <h1>测试</h1>
-        <h1>测试</h1>
-        <h1>测试</h1>
-        <h1>测试</h1>
-        <h1>测试</h1>
-        <h1>测试</h1>
-        <h1>测试</h1>
-        <h1>测试</h1>
-        <h1>测试</h1>
-        <h1>测试</h1>
-        <h1>测试</h1>
-        <h1>测试</h1>
-      
+        <dx-data-grid
+    id="gridContainer"
+    [dataSource]="datas?.yearList"
+    [columnAutoWidth]="true"
+    [allowColumnResizing]="true"
+    [showBorders]="true"
+    [wordWrapEnabled]="true"
+    rowTemplate="rowTemplateName"
+    [allowColumnReordering]="true">
+    <dxo-column-fixing [enabled]="true"></dxo-column-fixing>
+    <dxi-column [fixed]="true" [width]="100" caption="区域名称" dataField="vBuname">
+    </dxi-column>
+    <dxi-column caption="一月">
+      <dxi-column caption="计划销售额（万元）" dataField="nJanPlan" [width]="90"></dxi-column>
+      <dxi-column caption="实际销售套数（套）" dataField="nJanNum" [width]="90"></dxi-column>
+      <dxi-column caption="实际销售面积（㎡）" dataField="nJanArea" [width]="90"></dxi-column>
+      <dxi-column caption="实际销售金额（万元）" dataField="nJanMoney" [width]="90"></dxi-column>
+      <dxi-column caption="完成率" [width]="90"></dxi-column>
+    </dxi-column>
+    
+      <tbody *dxTemplate="let list of 'rowTemplateName';let i = index">
+          <tr class="dx-row main-row">
+            <td>{{list.data.vBuname}}</td>
+            <td>{{list.data.nJanPlan}}</td>
+            <td>{{list.data.nJanNum}}</td>
+            <td>{{list.data.nJanArea}}</td>
+            <td>{{$index}}</td>
+            <td *ngIf="(last || list.data.nJanPlan == 0 )">{{last}}</td>
+            <td *ngIf="(!last && list.data.nJanPlan != 0 )">{{list.data.nJanMoney/list.data.nJanPlan| percent:'1.0-0'}}</td>
+              
+        </tr>
+      </tbody>
+  </dx-data-grid>
+
 </div>

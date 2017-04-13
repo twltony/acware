@@ -1,4 +1,59 @@
 /* You can add global styles to this file, and also import other style files */
+@media (min-width:1024px){
+    .table th{
+    font-size: 0.8em;
+    }
+    .table td{
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width:768px){
+    h2 > span{
+        font-size: 2px;
+    }
+    .h2-title{
+        text-align: center;
+        font-size: 16px;
+    }
+    th{
+        vertical-align: middle;
+        font-size: 10px;
+        font-weight: 200;
+        padding: 2px;
+    }
+    table{
+        margin: 5px 0 0 0; 
+    }
+    .table td{
+        padding: 5px 5px 5px;
+    }
+    .memo{
+         font-size: 0.5em;
+        color: #777;
+        width:100%;
+        text-align: center;
+    }
+}
+
+@media (max-width:514px){
+    .phone-breakline{
+        margin-top: 15px;
+        margin-bottom: 15px;
+        display: block;
+    }
+     .memo{
+         font-size: 0.5em;
+        color: #777;
+        width:100%;
+        text-align: center;
+        
+    }
+}
+    
+    
+
+
 html{
   font-size: 1rem;
 }
@@ -60,7 +115,7 @@ h2{
 .td-button{
   background-color: #DFF0D0;
   width:30%;
-  font-size: large;
+  font-size: 1em;
 }
 .table-th{
   width:25%;
@@ -94,7 +149,10 @@ h2{
 .ac-main-content{
   width:100%;
   background-color:#fff;
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
   height: 100vh;
+}
+.sumRow{
+    background-color: #89CBDF
 }

@@ -3,17 +3,26 @@
  */
 import {Component, OnInit, ViewChild} from '@angular/core';
 import { Http } from '@angular/http'
+import { Country,GridService } from './costing.service'
+import { Employee,Service } from './empoloyee'
 
 @Component({
     selector: 'costing-subject',
-    styles:['.ac-breakline {line-height: 2px;background-color: #747474;margin: 5px;}th {font-size:16px} :host(ac-marketsubject) {overflow-y: scroll; overflow-x: hidden;}'],
-    templateUrl: 'costing.component.html'
+    styleUrls:['./costing.component.css'],
+    templateUrl: 'costing.component.html',
+    providers:[GridService,Service]
 })
 export class Costing implements OnInit{
-    constructor(public http: Http){
+    countries: Country[];
 
+    constructor(service: GridService) {
+        this.countries = service.getCountries();
     }
 
+
+    onContentReady(e) {
+        e.component.option("loadPanel.enabled", false);
+    }
     ngOnInit() {
   }
 

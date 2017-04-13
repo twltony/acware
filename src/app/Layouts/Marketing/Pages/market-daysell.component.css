@@ -1,1 +1,23 @@
 /*:host(market-daysell) {overflow-y: scroll; overflow-x: hidden;}*/
+table{
+    width: auto;
+    text-align: center;
+}
+.secondline th{
+    min-width: 100px;
+}
+.ac-main-content{
+  width:100%;
+  background-color:#fff;
+  overflow-y: auto;
+  overflow-x: auto;
+  height: 100vh;
+}
+th{
+        background-color: #89CBDF
+}
+.freeze-col{
+    position:fixed;
+    background-color:  #89CBDF;
+     min-width: 100px;
+}

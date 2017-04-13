@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 
 import { MarketingDatas } from '../../../Modals/marketing'
 
-import { MarketingService } from '../../../Services/basedata.service'
+import { MarketingService } from '../marketing.services'
 
 
 @Component({
@@ -19,13 +19,14 @@ export class MarketMonthSalesStatus implements OnInit{
 @Input() data: MarketingDatas[]
     constructor(
       private http: Http,
-      private router: Router
+      private router: Router,
+      private marketingService: MarketingService
     ){}
 
     ngOnInit() {
       this.marketingService.getMarketingMainData()
         .then(marketingDatas => {
-          this.marketingDatas = marketingDatas;
+          this.data = marketingDatas;
       })
   }
 
